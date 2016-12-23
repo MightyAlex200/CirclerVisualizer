@@ -15,8 +15,6 @@ export class Circler
 			y1 = math.cos(pos1)*@radius+love.graphics.getHeight!/2
 			love.graphics.line x,y,x1,y1
 		love.graphics.setColor 0, 0, 0
-		love.graphics.print "amount of lines: " .. @lines, 0, 45
-		love.graphics.print "table represented: " .. @mult, 0, 60
 	keypressed: (key) =>
 		if key == "q"
 			@lines -= 1

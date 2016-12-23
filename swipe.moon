@@ -10,9 +10,7 @@ export class Swipe
 
 	draw: =>
 		love.graphics.setColor 0,0,0
-		love.graphics.print "friction: ", 0, 75
 		love.graphics.setColor 255, 0, 0 if not @slowdown else love.graphics.setColor 0, 255, 0
-		love.graphics.print tostring(@slowdown), 50, 75
 	update: =>
 		if love.mouse.isDown 1
 			if @tap
