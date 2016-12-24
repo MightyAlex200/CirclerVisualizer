@@ -68,3 +68,5 @@ love.mousepressed = (x,y,button) ->
 	sb\mousepressed button
 	rb\mousepressed button
 	ib\mousepressed button
+love.wheelmoved = (x,y) ->
+	c\wheelmoved x,y

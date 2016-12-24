@@ -25,3 +25,5 @@ export class Circler
 		@t += dt
 		if @t >= 25
 			@t -= 1
+	wheelmoved: (x,y) =>
+		@lines += y
