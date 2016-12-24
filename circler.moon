@@ -3,10 +3,11 @@ export class Circler
 	lines: 200
 	mult: 2
 	t: 0
+	rainbow: true
 	draw: =>
 		@radius = math.min love.graphics.getHeight!/2, love.graphics.getWidth!/2
 		for line = 1, @lines
-			love.graphics.setColor HSL line/@lines*255, 255, 128
+			love.graphics.setColor HSL line/@lines*255, 255, 128 if @rainbow else love.graphics.setColor 0,0,0
 			pos = line/@lines * math.pi * 2
 			x = math.sin(pos)*@radius+love.graphics.getWidth!/2
 			y = math.cos(pos)*@radius+love.graphics.getHeight!/2
