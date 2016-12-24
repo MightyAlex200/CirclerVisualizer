@@ -5,6 +5,7 @@ export class Swipe
 	xvel: 0
 	tap: false
 	slowdown: true
+	intonly: true
 
 	load: ->
 
@@ -24,7 +25,16 @@ export class Swipe
 		if @slowdown
 			@xvel -= 1 if @xvel > 0
 			@xvel += 1 if @xvel < 0
-		
+		if @intonly
+			round = math.floor(@s/1000 + 0.5) - @s/1000
+			if round != 0
+				if round > 0
+					@xvel -= 1
+				else
+					@xvel += 1
+			else
+				@intonly = false
+
 		@s -= @xvel
 		@ml = {love.mouse.getX!, love.mouse.getY!}
 	keypressed: (key) =>
