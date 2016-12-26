@@ -6,6 +6,7 @@ ab = Button!
 sb = Button!
 rb = Button!
 ib = Button!
+inb = Button!
 love.load = ->
 	love.graphics.setBackgroundColor 255, 255, 255
 	fb.text = 'click here to toggle friction'
@@ -26,8 +27,22 @@ love.load = ->
 	ib.pressed = ->
 		s.intonly = true
 
+	inb.text = 'click here to invert background color'
+	inb.y = ib.y + 25
+	inb.width = 10000
+	inb.pressed = ->
+		a = love.graphics.getBackgroundColor! == 0,0,0
+		if a
+			love.graphics.setBackgroundColor 255, 255, 255
+			t.color = {0,0,0}
+			c.black = {0,0,0}
+		else
+			love.graphics.setBackgroundColor 0,0,0
+			t.color = {255,255,255}
+			c.black = {255,255,255}
+
 	ab.text = '+'
-	ab.y = ib.y + 25
+	ab.y = inb.y + 25
 	ab.pressed = ->
 		c.lines+=1
 
@@ -46,6 +61,7 @@ love.draw = ->
 	sb\draw!
 	rb\draw!
 	ib\draw!
+	inb\draw!
 love.update = =>
 	s\update @
 	c.mult = s.s/1000
@@ -55,6 +71,7 @@ love.update = =>
 	sb\update @
 	rb\update @
 	ib\update @
+	inb\update @
 	t.text = "Circler visualizer
 current multiplication table being represented: #{c.mult}
 amount of lines: #{c.lines}
@@ -68,5 +85,6 @@ love.mousepressed = (x,y,button) ->
 	sb\mousepressed button
 	rb\mousepressed button
 	ib\mousepressed button
+	inb\mousepressed button
 love.wheelmoved = (x,y) ->
 	c\wheelmoved x,y

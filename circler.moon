@@ -4,10 +4,11 @@ export class Circler
 	mult: 2
 	t: 0
 	rainbow: true
+	black: {0,0,0}
 	draw: =>
 		@radius = math.min love.graphics.getHeight!/2, love.graphics.getWidth!/2
 		for line = 1, @lines
-			love.graphics.setColor HSL line/@lines*255, 255, 128 if @rainbow else love.graphics.setColor 0,0,0
+			love.graphics.setColor HSL line/@lines*255, 255, 128 if @rainbow else love.graphics.setColor @black
 			pos = line/@lines * math.pi * 2
 			x = math.sin(pos)*@radius+love.graphics.getWidth!/2
 			y = math.cos(pos)*@radius+love.graphics.getHeight!/2

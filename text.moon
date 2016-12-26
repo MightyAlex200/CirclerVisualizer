@@ -1,7 +1,8 @@
 export class Text
 	text: ''
+	color: {0,0,0}
 	draw: =>
-		love.graphics.setColor 0, 0, 0
+		love.graphics.setColor @color
 		love.graphics.print @text
 		--love.graphics.print "Circler visualizer"
 		--love.graphics.print "Press 'q' and 'e' to change amount of lines", 0, 15
